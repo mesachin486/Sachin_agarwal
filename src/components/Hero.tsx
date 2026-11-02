@@ -98,13 +98,26 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Column: Typographic Narrative */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-            {/* Unboxed Kicker with subtle separator */}
-            <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium tracking-wide">
-              <span>IIT Kharagpur Alumnus '24</span>
-              <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
-              <span>2.5+ Years in AI SaaS & Fintech</span>
-              <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
-              <span>Gurugram, India</span>
+            {/* Avatar & Unboxed Kicker Lockup */}
+            <div className="flex items-center gap-4">
+              <img
+                src={PERSONAL_INFO.avatarUrl}
+                alt="Sachin Agarwal"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border-2 border-slate-200 dark:border-slate-800 shadow-sm shrink-0"
+              />
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-semibold tracking-wide">
+                  <span>IIT Kharagpur '24</span>
+                  <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>AI SaaS & Fintech Strategy</span>
+                  <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
+                  <span>Gurugram, India</span>
+                </div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                  <span>Available for Product & Strategy Roles</span>
+                </div>
+              </div>
             </div>
 
             {/* Headline with balanced wrap */}

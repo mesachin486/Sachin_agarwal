@@ -7,6 +7,8 @@ export interface Experience {
   highlight: string;
   bullets: string[];
   skills: string[];
+  photo?: string;
+  photoCaption?: string;
 }
 
 export interface Project {
@@ -25,6 +27,8 @@ export interface Project {
   liveLink?: string;
   githubLink?: string;
   docLink?: string;
+  photo?: string;
+  photoCaption?: string;
   interactiveType?: 'ai-cost' | 'marble-game' | 'fraud-sim' | 'cad-viewer';
 }
 
@@ -50,6 +54,9 @@ export const PERSONAL_INFO = {
   location: 'Gurugram, India',
   linkedin: 'https://linkedin.com/in/sachin-agarwal-813220146/',
   github: 'https://github.com/mesachin486',
+  avatarUrl: '/assets/aistudio/WhatsApp_Image_2026-10-28_at_12.26.28_AM_88c8d7fc.jpeg',
+  westernCanadaPhoto: '/assets/aistudio/IMG20230801153112_37858682.jpg',
+  skylinePhoto: '/assets/aistudio/WhatsApp_Image_2026-11-02_at_10.36.54_PM_6782aef8.jpeg',
   summary:
     'Product and strategy professional from IIT Kharagpur with 2.5+ years building across AI SaaS and fintech risk strategy. Experienced in AI unit economics, model governance, pricing strategy, A/B experimentation, and building customer-centric products from zero to one. Passionate about solving real-world friction—from hands-on scrap-motor hardware prototypes to enterprise data decisioning systems.',
 };
@@ -164,6 +171,8 @@ export const EXPERIENCES: Experience[] = [
       'Achieved 92% classification accuracy, cutting manual petrographic inspection time by 75%.',
     ],
     skills: ['Machine Learning', 'Random Forest', 'Python', 'Scikit-learn', 'Image Classification', 'Data Science'],
+    photo: '/assets/aistudio/IMG20230801153112_37858682.jpg',
+    photoCaption: 'Sachin outside University College at Western University, London, Ontario during the MITACS Globalink Research Fellowship.',
   },
   {
     company: 'School of Water Resources, IIT Kharagpur',
@@ -358,6 +367,8 @@ export const PROJECTS: Project[] = [
     ],
     techStack: ['Python', 'Scikit-learn', 'Computer Vision', 'Random Forest', 'NumPy', 'Pandas'],
     docLink: '/assets/aistudio/Transcript_sem1-6_03aa5a2d.pdf',
+    photo: '/assets/aistudio/IMG20230801153112_37858682.jpg',
+    photoCaption: 'At Western University campus, London, Ontario, Canada during the research fellowship.',
   },
   {
     id: 'water-resources-dl',

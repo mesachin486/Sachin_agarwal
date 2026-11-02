@@ -131,6 +131,82 @@ export const SkillsMatrix: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Global Exposure & Field Documentation Gallery */}
+        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+          <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-semibold mb-2">
+            <span>Global Exposure & Field Moments</span>
+            <span aria-hidden="true" className="text-slate-300 dark:text-slate-600">·</span>
+            <span>International Research & Travel</span>
+          </div>
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white font-display mb-6">
+            Research Fellowship & Global Perspective
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Western University Fellowship Photo */}
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs flex flex-col">
+              <div className="h-64 sm:h-72 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                <img
+                  src="/assets/aistudio/IMG20230801153112_37858682.jpg"
+                  alt="Sachin at Western University, Ontario, Canada"
+                  className="w-full h-full object-cover object-top hover:scale-102 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-mono uppercase tracking-wider">
+                    <span>Ontario, Canada</span>
+                    <span>·</span>
+                    <span>MITACS Globalink Fellow</span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white font-display mt-1">
+                    Western University (University College)
+                  </h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                    Awarded a competitive international fellowship ($10,000+ stipend) to conduct machine learning
+                    research on petrographic image classification, reducing analysis time by 75%.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 font-mono">
+                  London, Ontario · Summer Research Residency
+                </div>
+              </div>
+            </div>
+
+            {/* International Skyline & Travel Photo */}
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs flex flex-col">
+              <div className="h-64 sm:h-72 overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+                <img
+                  src="/assets/aistudio/WhatsApp_Image_2026-11-02_at_10.36.54_PM_6782aef8.jpeg"
+                  alt="Sachin Agarwal during international visits"
+                  className="w-full h-full object-cover object-center hover:scale-102 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-mono uppercase tracking-wider">
+                    <span>International Travel</span>
+                    <span>·</span>
+                    <span>Global Perspective</span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white font-display mt-1">
+                    Urban Exploration & Global Tech Mindset
+                  </h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                    Engaging with international architectural hubs and multicultural environments, bringing a broad,
+                    curious worldview to product thinking, team collaboration, and user empathy.
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 font-mono">
+                  Waterfront Skyline · North American Engagements
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

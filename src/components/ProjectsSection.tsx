@@ -290,6 +290,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedPerson
                 </div>
               </div>
 
+              {/* Real Project/Field Photo if available */}
+              {activeProjectModal.photo && (
+                <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
+                  <img
+                    src={activeProjectModal.photo}
+                    alt={activeProjectModal.title}
+                    className="w-full h-56 sm:h-64 object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
+                  {activeProjectModal.photoCaption && (
+                    <p className="p-2.5 text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-850 border-t border-slate-200 dark:border-slate-800">
+                      {activeProjectModal.photoCaption}
+                    </p>
+                  )}
+                </div>
+              )}
+
               {/* Challenge */}
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">

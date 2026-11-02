@@ -109,6 +109,26 @@ export const ExperienceTimeline: React.FC = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Field & Campus Photo */}
+                    {exp.photo && (
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-slate-50 dark:bg-slate-850 p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                        <img
+                          src={exp.photo}
+                          alt={exp.company}
+                          className="w-full sm:w-44 h-48 sm:h-32 object-cover object-center rounded-lg border border-slate-200 dark:border-slate-700 shrink-0 shadow-xs"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="space-y-1">
+                          <span className="text-[11px] font-mono uppercase text-blue-600 dark:text-blue-400 font-semibold tracking-wider">
+                            On-Campus & Research Documentation
+                          </span>
+                          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                            {exp.photoCaption}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
