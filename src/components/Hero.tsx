@@ -148,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="px-4 py-2.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors inline-flex items-center gap-2 whitespace-nowrap"
               >
                 <FileDown className="w-4 h-4 text-slate-500" />
-                <span>Download CV (4 Versions)</span>
+                <span>Download CV</span>
               </button>
             </div>
 

@@ -112,14 +112,6 @@ export const RESUMES = [
     fileName: 'Sachin_Agarwal_Resume_APM.pdf',
     targetRole: 'Associate Product Manager',
   },
-  {
-    id: 'general',
-    label: 'Comprehensive Resume',
-    description: 'Complete academic, consulting, machine learning, and leadership track record.',
-    path: '/assets/aistudio/SachinAgarwal_Resume__2___1__8c73d0b7.pdf',
-    fileName: 'SachinAgarwal_Comprehensive_Resume.pdf',
-    targetRole: 'Full Profile',
-  },
 ];
 
 export const EXPERIENCES: Experience[] = [
