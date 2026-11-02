@@ -1,0 +1,8 @@
+{
+  "name": "Sachin Agarwal Portfolio",
+  "description": "Portfolio of Sachin Agarwal: Product Management, AI SaaS, Strategy & Operations, and IIT Kharagpur Alumnus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
