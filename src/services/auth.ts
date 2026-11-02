@@ -1,4 +1,4 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
+import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
@@ -6,30 +6,59 @@ import {
   onAuthStateChanged,
   signOut,
   User,
+  Auth,
 } from 'firebase/auth';
 import firebaseConfig from './firebaseConfig';
 
-// Initialize Firebase App safely without re-initialization errors
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-export const auth = getAuth(app);
+export const isFirebaseConfigured = (): boolean => {
+  return Boolean(firebaseConfig.apiKey && firebaseConfig.apiKey.trim().length > 0);
+};
 
-// Google Auth Provider with Google Drive Read-Only Scope
-export const provider = new GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/drive.readonly');
-// Keep access prompt for Drive
-provider.setCustomParameters({
-  prompt: 'consent',
-});
+let appInstance: FirebaseApp | null = null;
+let authInstance: Auth | null = null;
+let providerInstance: GoogleAuthProvider | null = null;
+
+export const getFirebaseAuth = (): Auth | null => {
+  if (!isFirebaseConfigured()) {
+    return null;
+  }
+  if (!authInstance) {
+    try {
+      appInstance = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+      authInstance = getAuth(appInstance);
+    } catch (err) {
+      console.warn('Firebase initialization skipped or failed:', err);
+      return null;
+    }
+  }
+  return authInstance;
+};
+
+export const getGoogleProvider = (): GoogleAuthProvider | null => {
+  if (!providerInstance) {
+    providerInstance = new GoogleAuthProvider();
+    providerInstance.addScope('https://www.googleapis.com/auth/drive.readonly');
+    providerInstance.setCustomParameters({
+      prompt: 'consent',
+    });
+  }
+  return providerInstance;
+};
 
 // Flag to track sign-in in flight
 let isSigningIn = false;
-// In-memory cache for access token (NOT in localStorage/sessionStorage as required)
 let cachedAccessToken: string | null = null;
 
 export const initAuth = (
   onAuthSuccess?: (user: User, token: string | null) => void,
   onAuthFailure?: () => void
 ) => {
+  const auth = getFirebaseAuth();
+  if (!auth) {
+    if (onAuthFailure) onAuthFailure();
+    return () => {};
+  }
+
   return onAuthStateChanged(auth, async (user: User | null) => {
     if (user) {
       if (cachedAccessToken) {
@@ -45,6 +74,15 @@ export const initAuth = (
 };
 
 export const signInWithGoogle = async (): Promise<{ user: User; accessToken: string } | null> => {
+  const auth = getFirebaseAuth();
+  const provider = getGoogleProvider();
+
+  if (!auth || !provider) {
+    throw new Error(
+      'Live Google Drive sign-in requires VITE_FIREBASE_API_KEY to be configured in environment variables. You can still view all 12 pre-loaded verified certificates below.'
+    );
+  }
+
   try {
     isSigningIn = true;
     const result = await signInWithPopup(auth, provider);
@@ -67,6 +105,9 @@ export const getAccessToken = async (): Promise<string | null> => {
 };
 
 export const logOutGoogle = async () => {
-  await signOut(auth);
+  const auth = getFirebaseAuth();
+  if (auth) {
+    await signOut(auth);
+  }
   cachedAccessToken = null;
 };
